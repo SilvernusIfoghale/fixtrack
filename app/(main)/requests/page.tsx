@@ -1,10 +1,10 @@
 import React from "react";
-import OnboardingScreen from "./default-page";
+import RequestsPage from "./request-page";
 
 const page: React.FC = () => {
   return (
     <>
-      <OnboardingScreen />
+      <RequestsPage />
     </>
   );
 };

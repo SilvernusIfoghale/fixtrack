@@ -1,10 +1,10 @@
 import React from "react";
-import OnboardingScreen from "./default-page";
+import EditFieldPage from "./edit-field-page";
 
 const page: React.FC = () => {
   return (
     <>
-      <OnboardingScreen />
+      <EditFieldPage />
     </>
   );
 };
