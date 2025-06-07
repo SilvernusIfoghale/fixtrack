@@ -60,8 +60,8 @@ export default function InputField({
           onChange={onChange}
           placeholder={placeholder}
           maxLength={maxLength}
-          className={`w-full px-3 py-2 border ${
-            error ? "border-red-500" : "border-gray-300"
+          className={`w-full px-3 py-2  bg-white ${
+            error ? "border-red-500 border" : "border border-white"
           } rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 ${
             type === "code" ? "text-center letter-spacing-wide text-lg" : ""
           }`}

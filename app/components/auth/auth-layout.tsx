@@ -1,14 +1,13 @@
 import type React from "react";
 import Link from "next/link";
 import { FaApple, FaFacebook } from "react-icons/fa";
-import ellipseTr from "@/public/ellipse-tr.png";
-import ellipseTl from "@/public/ellipse-tl.png";
-import ellipseBr from "@/public/ellipse-br.png";
-import ellipseBl from "@/public/ellipse-bl.png";
+
 import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
+  logo?: StaticImport | string;
   title: string;
   subtitle?: string;
   showSocialLogin?: boolean;
@@ -21,39 +20,23 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({
   children,
+  logo,
   title,
   subtitle,
   showSocialLogin = true,
   alternateAction,
 }: AuthLayoutProps) {
   return (
-    <div className="min-h-screen bg-white flex flex-col relative overflow-hidden">
-      {/* Background shapes */}
-      <div className="absolute top-0 flex items-start justify-between w-full">
-        <div className=" opacity-50  ">
-          <Image src={ellipseTl} alt="ellipse" />
-        </div>
-        <div className=" opacity-50 ">
-          {" "}
-          <Image src={ellipseTr} alt="ellipse" />
-        </div>
-      </div>
-
-      <div className="absolute bottom-0 flex items-end justify-between  w-full">
-        <div className="   opacity-50 ">
-          {" "}
-          <Image src={ellipseBl} alt="ellipse" />
-        </div>
-        <div className=" opacity-50 ">
-          {" "}
-          <Image src={ellipseBr} alt="ellipse" />
-        </div>
+    <div className="min-h-screen bg-[#F5F5F5] flex flex-col relative overflow-hidden">
+      {/* Logo */}
+      <div className="mx-auto h-52">
+        {logo && <Image src={logo} alt="ellipse" />}
       </div>
 
       {/* Content */}
       <div className="flex-1 flex flex-col p-6  max-w-md mx-auto w-full relative z-20">
-        <div className="mb-6 mt-8">
-          <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+        <div className="mb-6 mt-8 mx-auto text-center">
+          <h1 className="text-xl font-bold text-blue-400">{title}</h1>
           {subtitle && <p className="text-sm text-gray-600">{subtitle}</p>}
         </div>
 
@@ -110,7 +93,7 @@ export default function AuthLayout({
               {alternateAction.question}{" "}
               <Link
                 href={alternateAction.actionLink}
-                className="text-blue-600 font-medium hover:underline"
+                className="text-[#216CA6]  font-medium underline"
               >
                 {alternateAction.actionText}
               </Link>

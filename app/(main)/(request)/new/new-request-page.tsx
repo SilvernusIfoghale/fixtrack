@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaUpload } from "react-icons/fa";
 import Button from "@/app/components/auth/button";
+import Image from "next/image";
+import logo from "@/public/fixtrack_logo.png";
 
 export default function NewRequestPage() {
   const router = useRouter();
@@ -13,6 +15,7 @@ export default function NewRequestPage() {
     issueType: "",
     urgencyLevel: "",
     issueDetails: "",
+    location: "",
     files: [] as File[],
   });
 
@@ -26,6 +29,8 @@ export default function NewRequestPage() {
     "Cleaning",
     "Other",
   ];
+
+  const location = ["Abuja", "Lagos", "Rivers", "Ogun", "Oyo", "Delta", "Edo"];
 
   const urgencyLevels = ["Low", "Medium", "High", "Emergency"];
 
@@ -52,7 +57,8 @@ export default function NewRequestPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white px-4 py-5 shadow">
+      <div className="bg-white px-4 py-5 gap-2 shadow flex items-center">
+        <Image src={logo} alt="fixtrack" width={30} />
         <h1 className="text-lg font-bold">New Maintenance Request</h1>
       </div>
 
@@ -62,7 +68,7 @@ export default function NewRequestPage() {
           {/* Issue Type */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Issue type
+              Issue type*
             </label>
             <select
               name="issueType"
@@ -83,7 +89,7 @@ export default function NewRequestPage() {
           {/* Urgency Level */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Urgency level
+              Urgency level*
             </label>
             <select
               name="urgencyLevel"
@@ -94,6 +100,26 @@ export default function NewRequestPage() {
             >
               <option value="">Select urgency level</option>
               {urgencyLevels.map((level) => (
+                <option key={level} value={level}>
+                  {level}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* Location */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Location*
+            </label>
+            <select
+              name="urgencyLevel"
+              value={formData.location}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              required
+            >
+              <option value="">Select location</option>
+              {location.map((level) => (
                 <option key={level} value={level}>
                   {level}
                 </option>

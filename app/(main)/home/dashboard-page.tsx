@@ -56,19 +56,21 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white px-4 py-3 flex justify-between items-center border-b">
-        <div>
-          <h1 className="text-lg font-bold">FixTrack</h1>
-          <p className="text-sm text-gray-600">Welcome, Alex</p>
+      <div className="bg-white px-4 pt-5 ">
+        <h1 className="text-lg font-bold text-center w-full">FixTrack</h1>
+        <div className="flex justify-between items-center  shadow mb-2 py-2">
+          <div>
+            <p className="text-sm text-gray-600">Welcome, Alex</p>
+          </div>
+          <FaBell className="text-gray-600 text-xl" />
         </div>
-        <FaBell className="text-gray-600 text-xl" />
       </div>
 
       {/* Content */}
       <div className="p-4 space-y-6">
         {/* Announcement Card */}
         <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-          <div className="relative h-40">
+          <div className="relative h-52">
             <Image
               src="/announcement.png"
               alt="Pool maintenance announcement"
@@ -83,7 +85,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="p-3">
-              <p className="text-xs text-white absolute bottom-0 pb-3">
+              <p className="text-sm font-semibold text-white absolute bottom-0 pb-3">
                 The pool will be closed for scheduled maintenance. There have
                 been kindly bear with us as the pool will be open back on July
                 15th.

@@ -9,6 +9,8 @@ import AuthLayout from "@/app/components/auth/auth-layout";
 import Button from "@/app/components/auth/button";
 import InputField from "@/app/components/auth/input-filed";
 
+import logo from "@/public/fixtrack.png";
+
 export default function LoginPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -60,6 +62,7 @@ export default function LoginPage() {
   return (
     <AuthLayout
       title="Welcome Back"
+      logo={logo}
       subtitle="Log In To Continue"
       alternateAction={{
         question: "Don't have an account?",
@@ -95,7 +98,7 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-2">
-          <Button type="submit">Sign In</Button>
+          <Button type="submit">Login</Button>
         </div>
       </form>
     </AuthLayout>

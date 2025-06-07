@@ -22,11 +22,11 @@ export default function Button({
   fullWidth = true,
 }: ButtonProps) {
   const baseStyles =
-    "py-3 px-4 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "py-3 px-4 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
 
   const variantStyles = {
     primary:
-      "bg-[#216CA6] text-white hover:bg-blue-500 focus:ring-blue-500 hover:cursor-pointer",
+      "bg-[#1980E5] text-white hover:bg-blue-500 focus:ring-blue-500 hover:cursor-pointer",
     secondary:
       "bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500",
     link: "text-blue-600 hover:text-blue-800 underline p-0",

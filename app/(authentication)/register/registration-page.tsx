@@ -7,12 +7,13 @@ import { useRouter } from "next/navigation";
 import AuthLayout from "@/app/components/auth/auth-layout";
 import InputField from "@/app/components/auth/input-filed";
 import Button from "@/app/components/auth/button";
+import logo from "@/public/fixtrack.png";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+
     password: "",
     email: "",
   });
@@ -34,10 +35,6 @@ export default function RegisterPage() {
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
     }
 
     if (!formData.email.trim()) {
@@ -69,60 +66,53 @@ export default function RegisterPage() {
   };
 
   return (
-    <AuthLayout
-      title="Start Managing With Ease"
-      subtitle="Create an Account"
-      alternateAction={{
-        question: "Already have an account?",
-        actionText: "Login",
-        actionLink: "/login",
-      }}
-    >
-      <form onSubmit={handleSubmit}>
-        <InputField
-          type="text"
-          name="name"
-          placeholder="Enter your full name"
-          value={formData.name}
-          onChange={handleChange}
-          label="Name"
-          error={errors.name}
-        />
+    <>
+      <AuthLayout
+        logo={logo}
+        title="Start Managing With Ease"
+        subtitle="and manage your property effortlessly"
+        alternateAction={{
+          question: "Already have an account?",
+          actionText: "Login",
+          actionLink: "/login",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <InputField
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            value={formData.name}
+            onChange={handleChange}
+            label="Name"
+            error={errors.name}
+          />
 
-        <InputField
-          type="tel"
-          name="phone"
-          placeholder="Enter your mobile number"
-          value={formData.phone}
-          onChange={handleChange}
-          label="Phone No"
-          error={errors.phone}
-        />
+          <InputField
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            value={formData.email}
+            onChange={handleChange}
+            label="Email"
+            error={errors.email}
+          />
 
-        <InputField
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          value={formData.password}
-          onChange={handleChange}
-          label="Password"
-          error={errors.password}
-        />
+          <InputField
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            value={formData.password}
+            onChange={handleChange}
+            label="Password"
+            error={errors.password}
+          />
 
-        <InputField
-          type="email"
-          name="email"
-          placeholder="Enter your email address"
-          value={formData.email}
-          onChange={handleChange}
-          label="Email"
-          error={errors.email}
-        />
-
-        <div className="mt-6">
-          <Button type="submit">Sign Up</Button>
-        </div>
-      </form>
-    </AuthLayout>
+          <div className="mt-6">
+            <Button type="submit">Sign Up</Button>
+          </div>
+        </form>
+      </AuthLayout>
+    </>
   );
 }

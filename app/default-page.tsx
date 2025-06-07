@@ -5,7 +5,7 @@ import type React from "react";
 import { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/fixtrack-logo.png";
+import logo from "@/public/fixtrack.png";
 import splash1 from "@/public/splash1.png";
 import splash2 from "@/public/splash2.png";
 import ellipseLeft from "@/public/ellipse-auth-left.png";
@@ -134,7 +134,7 @@ export default function OnboardingScreen() {
   if (loader) {
     return (
       <div className="flex justify-center items-center h-[100vh]">
-        <div className="animate-pulse">
+        <div className="animate-pulse w-52">
           <Image
             src={logo}
             alt="FIXTRACK Logo"
